@@ -1,0 +1,25 @@
+services:
+  go-app:
+    build: .
+    restart: unless-stopped
+    networks:
+      - app-network
+    expose:
+      - "8000"
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    depends_on:
+      - go-app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

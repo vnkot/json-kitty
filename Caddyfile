@@ -1,0 +1,7 @@
+json.vnkot.ru {
+	reverse_proxy go-app:8000
+}
+
+// localhost {
+//     reverse_proxy go-app:8000
+// }
