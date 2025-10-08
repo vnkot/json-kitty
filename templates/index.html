@@ -1,16 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png">
+	<link rel="stylesheet" href="/static/css/reset.css">
 	<link rel="stylesheet" href="/static/css/style.css">
 	<title>JSON Kitty</title>
 </head>
+
 <body>
 	<div class="wrapper">
-		<img src="https://cataas.com/cat" class="kitty" alt="kitty">
+		<header class="header">
+			<div class="container">
+				<div class="logo">
+					<div class="logo__avatar">
+						<img src="/static/images/favicon.png" alt="kitty">
+					</div>
+					<div class="logo__content">
+						<span class="logo__name">JSON Kitty</span>
+						<span class="logo__description">Уютный форматер для ваших данных 🍂</span>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main class="main">
+			<div class="container">
+				<div class="main__content">
+					<div class="main__head">
+						<div class="cover">
+							<div class="cover__image">
+								<img src="https://cataas.com/cat" alt="cover">
+							</div>
+							<div class="cover__badge">🍂</div>
+						</div>
+
+						<h1>JSON Форматер</h1>
+
+						<p>
+							Сделайте ваш JSON красивым и читаемым, как осенние листья <span
+								class="leaf-shiver">🍁</span>
+						</p>
+					</div>
+
+					<div class="main__body">
+						<div class="json-card">
+							<div class="json-card__head">
+								<h2 class="json-card__title">📝 Исходный JSON</h2>
+								<button class="json-card__action">Пример 🐱</button>
+							</div>
+							<div class="json-card__body">
+								<textarea placeholder="Введите ваш json здесь"></textarea>
+							</div>
+						</div>
+
+						<div class="json-card json-card--with-placeholder">
+							<div class="json-card__head">
+								<h2 class="json-card__title">✨ Отформатированный JSON</h2>
+								<!-- <button class="json-card__action">Скопировать 💾</button> -->
+							</div>
+							<div class="json-card__body">
+								<pre></pre>
+								<div class="json-card__placeholder placeholder">
+									<span class="placeholder__icon">🐾</span>
+									<span class="placeholder__title">Здесь появится красивый JSON</span>
+									<span class="placeholder__description">Как котик, свернувшийся клубочком</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="footer">
+			<div class="footer__body">
+				<span class="footer__cats">🐱</span>
+				<div class="footer__content">
+					<span>Сделано с любовью к котикам и красивому коду</span>
+					<span>Пусть ваш JSON будет таким же уютным, как осенний вечер</span>
+				</div>
+				<span class="footer__leaf">🍂</span>
+			</div>
+		</footer>
 	</div>
 	<script src="/static/js/script.js"></script>
 </body>
+
 </html>
