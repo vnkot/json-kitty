@@ -1,0 +1,43 @@
+i.emoji {
+	&.emoji--leaf-1 {
+		&::before {
+			content: '🍂';
+		}
+	}
+
+	&.emoji--leaf-2 {
+		&::before {
+			content: '🍁';
+		}
+	}
+
+	&.emoji--kitty {
+		&::before {
+			content: '🐱';
+		}
+	}
+
+	&.emoji--kitty {
+		&::before {
+			content: '🐱';
+		}
+	}
+
+	&.emoji--write {
+		&::before {
+			content: '📝';
+		}
+	}
+
+	&.emoji--copy {
+		&::before {
+			content: '📋';
+		}
+	}
+
+	&.emoji--magic {
+		&::before {
+			content: '✨';
+		}
+	}
+}

@@ -1,0 +1,30 @@
+.container {
+	--offset: 2rem;
+	--max-width: 1488px;
+
+	margin: 0 auto;
+	padding: 0 var(--offset);
+	max-width: calc(var(--max-width) + var(--offset) * 2);
+}
+
+.title {
+	font-weight: var(--font-weight-bold);
+
+	h1& {
+		font-size: var(--font-size-xl);
+	}
+
+	h2& {
+		font-size: var(--font-size-sm);
+	}
+
+	&.title--color-reverse {
+		color: #fff;
+	}
+}
+
+.description {
+	p& {
+		font-size: var(--font-size-base);
+	}
+}

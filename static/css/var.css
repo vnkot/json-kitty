@@ -1,0 +1,23 @@
+:root {
+	/* -------- Шрифты -------- */
+	/* 14px */
+	--font-size-xs: 1.75rem;
+	/* 16px */
+	--font-size-sm: 2rem;
+	/* 18px */
+	--font-size-base: 2.25rem;
+	/* 20px */
+	--font-size-md: 2.5rem;
+	/* 24px */
+	--font-size-lg: 3rem;
+	/* 30px */
+	--font-size-xl: 3.75rem;
+	/* 48px */
+	--font-size-xxl: 6rem;
+
+	--font-weight-normal: 400;
+	--font-weight-bold: 700;
+
+	--font-family: 'Inter', sans-serif;
+	/* ------------------------ */
+}
