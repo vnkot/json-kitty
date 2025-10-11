@@ -18,6 +18,7 @@
 
 	.main {
 		flex: 1 1 0;
+		width: 100%;
 	}
 }
 
@@ -79,9 +80,19 @@
 		"head head"
 		"json result";
 	;
+	grid-template-columns: repeat(2, minmax(300px, 1fr));
 
 	padding-top: 7rem;
 	padding-bottom: 7rem;
+
+	@media (max-width: 992px) {
+		grid-template-areas:
+			"head"
+			"json"
+			"result"
+		;
+		grid-template-columns: 1fr;
+	}
 
 	.main__head {
 		grid-area: head;
@@ -127,8 +138,6 @@
 	box-shadow: var(--shadow);
 	border: 1px solid var(--color-border);
 
-	width: 558px;
-
 	.json-card__head {
 		display: flex;
 		gap: 2rem;
@@ -137,6 +146,12 @@
 
 		padding: 3rem;
 		background-color: var(--color-gray-400);
+
+		@media (max-width: 576px) {
+			flex-direction: column;
+			align-items: start;
+			justify-content: stretch;
+		}
 	}
 
 	.json-card__body {
@@ -206,7 +221,7 @@
 .footer {
 	display: flex;
 	justify-content: center;
-	padding: 5rem 0;
+	padding: 5rem 2rem;
 
 	.footer__content {
 		--max-width: 650px;
