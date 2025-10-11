@@ -1,18 +1,11 @@
 :root {
 	/* -------- Шрифты -------- */
-	/* 14px */
 	--font-size-xs: 1.75rem;
-	/* 16px */
 	--font-size-sm: 2rem;
-	/* 18px */
 	--font-size-base: 2.25rem;
-	/* 20px */
 	--font-size-md: 2.5rem;
-	/* 24px */
 	--font-size-lg: 3rem;
-	/* 30px */
 	--font-size-xl: 3.75rem;
-	/* 48px */
 	--font-size-xxl: 6rem;
 
 	--font-weight-normal: 400;
@@ -20,4 +13,27 @@
 
 	--font-family: 'Inter', sans-serif;
 	/* ------------------------ */
+
+
+	/* -------- Цвета -------- */
+	--color-white: #ffffff;
+	--color-accent: #e07000;
+
+	--color-gray-100: #fafafa;
+	--color-gray-200: #e8e6e3;
+	--color-gray-300: #78706b;
+	--color-gray-400: #57524d;
+	--color-gray-500: #45403b;
+	--color-gray-600: #292424;
+
+	--color-beige: #F7F6F4;
+
+	--color-bg: var(--color-gray-100);
+	--color-border: var(--color-gray-200);
+	--color-outline: var(--color-gray-100);
+	/* ----------------------- */
+
+	/* -------- Тени -------- */
+	--shadow: 0 8px 10px -6px rgba(0, 0, 0, 0.1), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+	/* ---------------------- */
 }

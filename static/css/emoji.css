@@ -17,9 +17,9 @@ i.emoji {
 		}
 	}
 
-	&.emoji--kitty {
+	&.emoji--paws {
 		&::before {
-			content: '🐱';
+			content: '🐾';
 		}
 	}
 

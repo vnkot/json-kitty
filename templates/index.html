@@ -10,7 +10,7 @@
 </head>
 
 <body>
-	<div class="wrapper">
+	<div class="wrapper layout">
 		<header class="header">
 			<div class="container">
 				<div class="logo">
@@ -24,63 +24,58 @@
 			</div>
 		</header>
 
-		<main class="main">
-			<div class="container">
-				<div class="main__content">
-					<div class="main__head">
-						<div class="cover">
-							<div class="cover__image">
-								<img src="https://cataas.com/cat" alt="cover">
-							</div>
-							<div class="cover__badge"><i class="emoji emoji--leaf-1"></i></div>
-						</div>
 
-						<h1 class="title">JSON Форматер</h1>
-						<p class="description">
-							Сделайте ваш JSON красивым и читаемым, как осенние листья <span class="leaf-shiver"><i
-									class="emoji emoji--leaf-2 anime anime--shiver"></i></span>
-						</p>
-					</div>
+		<main class="main container">
+			<div class="main__head">
+				<div class="cover">
+					<img src="https://cataas.com/cat" alt="cover">
+				</div>
 
-					<div class="main__body">
-						<div class="json-card">
-							<div class="json-card__head">
-								<h2 class="title title--color-reverse"><i class="emoji emoji--write"></i> Исходный JSON
-								</h2>
-								<button class="json-card__action">Пример <i class="emoji emoji--kitty"></i></button>
-							</div>
-							<div class="json-card__body">
-								<textarea placeholder="Введите ваш json здесь"></textarea>
-							</div>
-						</div>
+				<h1 class="title">JSON Форматер</h1>
+				<p class="description">
+					Сделайте ваш JSON красивым и читаемым, как осенние листья <span class="leaf-shiver"><i
+							class="emoji emoji--leaf-2 anime anime--shiver"></i></span>
+				</p>
+			</div>
 
-						<div class="json-card json-card--with-placeholder">
-							<div class="json-card__head">
-								<h2 class="title title--color-reverse"><i class="emoji emoji--madgic"></i>
-									Отформатированный JSON</h2>
-							</div>
-							<div class="json-card__body">
-								<pre></pre>
-								<div class="json-card__placeholder placeholder">
-									<span class="placeholder__icon">🐾</span>
-									<span class="placeholder__title">Здесь появится красивый JSON</span>
-									<span class="placeholder__description">Как котик, свернувшийся клубочком</span>
-								</div>
-							</div>
+			<section class="main__json json-card">
+				<header class="json-card__head">
+					<h2 class="title title--color-reverse"><i class="emoji emoji--write"></i> Исходный JSON
+					</h2>
+					<button class="action action--reverse json-card__action">Пример <i
+							class="emoji emoji--kitty"></i></button>
+				</header>
+
+				<div class="json-card__body">
+					<textarea placeholder="Введите ваш json здесь"></textarea>
+				</div>
+			</section>
+
+			<section class="main__result json-card">
+				<header class="json-card__head">
+					<h2 class="title title--color-reverse"><i class="emoji emoji--magic"></i>
+						Отформатированный JSON</h2>
+					<button disabled class="action action--reverse json-card__action">Сохранить <i
+							class="emoji emoji--save"></i></button>
+				</header>
+
+				<div class="json-card__body">
+					<pre></pre>
+
+					<div class="json-card__placeholder placeholder">
+						<div class="placeholder__content">
+							<span class="placeholder__paws"><i class="emoji emoji--paws"></i></span>
+							<p class="description">Здесь будет красивенький json</p>
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 		</main>
 
 		<footer class="footer">
-			<div class="footer__body">
-				<span class="footer__cats"><i class="emoji emoji--kitty"></i></span>
-				<div class="footer__content">
-					<span>Сделано с любовью к котикам и красивому коду</span>
-					<span>Пусть ваш JSON будет таким же уютным, как осенний вечер</span>
-				</div>
-				<span class="footer__leaf"><i class="emoji emoji--leaf-1"></i></span>
+			<div class="footer__content">
+				<span>Сделано с любовью к котикам и красивому коду</span>
+				<span>Разработано: <a class="link" target="_blank" href="https://github.com/vnkot">@vnkot</a></span>
 			</div>
 		</footer>
 	</div>
