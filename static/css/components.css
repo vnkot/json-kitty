@@ -33,77 +33,35 @@
 }
 
 button.action {
-	--bg: transparent;
-	--color: var(--color-gray-600);
-	--border: 2px solid transparent;
-
-	color: var(--color);
-	font-family: initial;
-	user-select: none;
-	font-size: var(--font-size-sm);
+	--border: var(--color-border);
 
 	outline: none;
+	cursor: pointer;
+
 	padding: .5rem 1rem;
 	border-radius: 1rem;
-	border: var(--border);
-	background-color: var(--bg);
+	background-color: var(--color-bg);
+	border: 2px solid var(--border);
 
-	cursor: pointer;
-	transition: background-color .3s, color .3s, opacity .3s, border-color .3s;
+	font-family: inherit;
+	font-size: var(--font-size-sm);
 
 	&:hover {
-		--bg: var(--color-gray-200);
+		--border: var(--color-gray-300);
 	}
 
-	&:focus,
-	&:active {
-		--border: 2px solid var(--color-accent);
+	&:active,
+	&:focus {
+		--border: var(--color-accent);
 	}
 
-	&:disabled {
-		--color: var(--color-gray-400);
-		--bg: transparent;
-
-		opacity: 0.6;
+	&[disabled] {
 		cursor: not-allowed;
-		pointer-events: none;
 
-		&:hover {
-			--bg: transparent;
-		}
-
-		&:focus,
-		&:active {
-			--border: 2px solid transparent;
-		}
-	}
-
-	&.action--reverse {
-		--bg: var(--color-gray-200);
-		--color: var(--color-gray-600);
-
-		&:hover {
-			--bg: var(--color-gray-300);
-			--color: var(--color-gray-700);
-		}
-
-		&:disabled {
-			--color: var(--color-gray-400);
-			--bg: var(--color-gray-100);
-
-			opacity: 0.5;
-			cursor: not-allowed;
-			pointer-events: none;
-
-			&:hover {
-				--bg: var(--color-gray-100);
-				--color: var(--color-gray-400);
-			}
-
-			&:focus,
-			&:active {
-				--border: 2px solid transparent;
-			}
+		&:hover,
+		&:active,
+		&:focus {
+			--border: var(--color-border);
 		}
 	}
 }

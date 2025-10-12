@@ -6,6 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png">
 	<link rel="stylesheet" href="/static/css/style.css">
+	<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js"
+		integrity="sha384-ZBXiYtYQ6hJ2Y0ZNoYuI+Nq5MqWBr+chMrS/RkXpNzQCApHEhOt2aY8EJgqwHLkJ"
+		crossorigin="anonymous"></script>
 	<title>JSON Kitty</title>
 </head>
 
@@ -42,32 +45,38 @@
 				<header class="json-card__head">
 					<h2 class="title title--color-reverse"><i class="emoji emoji--write"></i> Исходный JSON
 					</h2>
-					<button class="action action--reverse json-card__action">Пример <i
-							class="emoji emoji--kitty"></i></button>
 				</header>
 
-				<div class="json-card__body">
-					<textarea placeholder="Введите ваш json здесь"></textarea>
-				</div>
+				<form class="json-card__body" hx-post="/api/json-format" hx-target="#json-result">
+					<div class="json-card__actions">
+						<button hx-get="/api/json-example" hx-trigger="click" hx-target="#json-editor"
+							hx-swap="outerHTML" class="action json-card__action">Пример</button>
+						<button type="submit" class="action">Форматировать</button>
+					</div>
+					<textarea id="json-editor" oninput="updateButtonsState()" placeholder="Введите ваш json здесь"
+						name="client-json"></textarea>
+				</form>
 			</section>
 
 			<section class="main__result json-card">
 				<header class="json-card__head">
 					<h2 class="title title--color-reverse"><i class="emoji emoji--magic"></i>
 						Отформатированный JSON</h2>
-					<button disabled class="action action--reverse json-card__action">Сохранить <i
-							class="emoji emoji--save"></i></button>
 				</header>
 
 				<div class="json-card__body">
-					<pre></pre>
+					<!-- <div class="json-card__actions">
+						<button disabled class="action json-card__action">Скопировать</button>
+					</div> -->
 
-					<div class="json-card__placeholder placeholder">
+					<pre id="json-result"></pre>
+
+					<!-- <div class="json-card__placeholder placeholder">
 						<div class="placeholder__content">
 							<span class="placeholder__paws"><i class="emoji emoji--paws"></i></span>
 							<p class="description">Здесь будет красивенький json</p>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</section>
 		</main>
@@ -79,6 +88,7 @@
 			</div>
 		</footer>
 	</div>
+
 	<script src="/static/js/script.js"></script>
 </body>
 
