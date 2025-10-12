@@ -5,7 +5,7 @@ down-dev:
 	docker compose -f ./docker-compose.dev.yml down
 
 up-prod:
-	docker compose up -d
+	docker compose up -d --build
 
 down-prod:
 	docker compose down

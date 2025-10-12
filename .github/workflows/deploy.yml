@@ -23,7 +23,11 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             cd ./json-kitty
-            git restore .
-            git pull
+
+            git reset --hard HEAD
+            git clean -fd
+            git fetch --all
+            git reset --hard origin/main
+
             make down-prod
             make up-prod
