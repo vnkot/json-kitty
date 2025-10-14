@@ -21,6 +21,7 @@ body {
 
 html {
 	font-size: 8px;
+	scrollbar-gutter: stable
 }
 
 body {

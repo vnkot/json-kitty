@@ -1,0 +1,22 @@
+<section id="json-result" class="main__result json-card">
+	<header class="json-card__head">
+		<h2 class="title title--color-reverse"><i class="emoji emoji--magic"></i>
+			Отформатированный JSON</h2>
+	</header>
+
+	<div class="json-card__body">
+		<div class="json-card__actions">
+			<button {{ if .CopyButton.Disabled }} disabled {{ end }} {{ if .CopyButton.OnClick }}
+				onclick={{.CopyButton.OnClick}} {{ end }} class="action json-card__action">Скопировать</button>
+		</div>
+
+		<pre>{{ .JsonResult.Children }}</pre>
+
+		<!-- <div class="json-card__placeholder placeholder">
+						<div class="placeholder__content">
+							<span class="placeholder__paws"><i class="emoji emoji--paws"></i></span>
+							<p class="description">Здесь будет красивенький json</p>
+						</div>
+					</div> -->
+	</div>
+</section>

@@ -2,34 +2,71 @@ package main
 
 import (
 	"fmt"
-	"html"
 	"html/template"
 	"log"
 	"math/rand"
 	"net/http"
+	"strconv"
 
 	"github.com/vnkot/json-kitty/pkg/jsonkitty"
 	"github.com/vnkot/json-kitty/pkg/middleware"
 )
 
 var staticPath = "static"
-var templates = template.Must(template.ParseFiles("templates/index.html"))
+var templates = template.Must(template.ParseFiles("templates/index.html", "templates/subtemplates/json_editor.html", "templates/subtemplates/json_result.html"))
 
-func getNewTextAreaResult(value string) string {
-	safeValue := html.EscapeString(value)
-	return fmt.Sprintf(` 
-		<textarea id="json-editor" placeholder="Введите ваш json здесь" name="client-json">%s</textarea>`, safeValue)
+type ButtonState struct {
+	Disabled bool
+	OnClick  template.JS
+}
+
+type ElementState struct {
+	Children string
+}
+
+type JsonEditorState struct {
+	FormatButton ButtonState
+	JsonTextArea ElementState
+}
+
+type JsonResultSate struct {
+	CopyButton ButtonState
+	JsonResult ElementState
+}
+
+type IndexPageState struct {
+	JsonEditorState
+	JsonResultSate
+}
+
+var indexPageState = IndexPageState{
+	JsonEditorState{
+		FormatButton: ButtonState{
+			Disabled: true,
+		},
+	},
+	JsonResultSate{
+		CopyButton: ButtonState{
+			Disabled: true,
+		},
+	},
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	templates.ExecuteTemplate(w, "index.html", nil)
+	templates.ExecuteTemplate(w, "index.html", indexPageState)
 }
 
 func jsonExampleHandler(w http.ResponseWriter, r *http.Request) {
 	randomJsonExample := jsonkitty.Examples[rand.Intn(len(jsonkitty.Examples))]
 
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
-	w.Write([]byte(getNewTextAreaResult(randomJsonExample)))
+	templates.ExecuteTemplate(w, "json_editor.html", JsonEditorState{
+		FormatButton: ButtonState{
+			Disabled: false,
+		},
+		JsonTextArea: ElementState{
+			Children: randomJsonExample,
+		},
+	})
 }
 
 func jsonFormatHandler(w http.ResponseWriter, r *http.Request) {
@@ -38,15 +75,31 @@ func jsonFormatHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	clientJson := r.FormValue("client-json")
+	clientJson := r.FormValue("json")
 	prettyJson, err := jsonkitty.Pretty(clientJson)
+	quotedJson := strconv.Quote(string(prettyJson))
 
 	if err != nil {
-		w.Write([]byte(err.Error()))
+		templates.ExecuteTemplate(w, "json_result.html", JsonResultSate{
+			CopyButton: ButtonState{
+				Disabled: true,
+			},
+			JsonResult: ElementState{
+				Children: err.Error(),
+			},
+		})
 		return
 	}
 
-	w.Write(prettyJson)
+	templates.ExecuteTemplate(w, "json_result.html", JsonResultSate{
+		CopyButton: ButtonState{
+			Disabled: false,
+			OnClick:  template.JS(fmt.Sprintf("navigator.clipboard.writeText(%s).then(() => alert('Copied!')).catch(err => alert('Error: ' + err))", quotedJson)),
+		},
+		JsonResult: ElementState{
+			Children: string(prettyJson),
+		},
+	})
 }
 
 func main() {

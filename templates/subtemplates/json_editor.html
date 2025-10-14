@@ -1,0 +1,16 @@
+<section id="json-editor" class="main__json json-card">
+	<header class="json-card__head">
+		<h2 class="title title--color-reverse"><i class="emoji emoji--write"></i> Исходный JSON
+		</h2>
+	</header>
+
+	<form class="json-card__body" hx-post="/api/json-format" hx-target="#json-result" hx-swap="outerHTML">
+		<div class="json-card__actions">
+			<button hx-get="/api/json-example" hx-trigger="click" hx-target="#json-editor" hx-swap="outerHTML"
+				class="action json-card__action">Пример</button>
+			<button type="submit" {{ if .FormatButton.Disabled }} disabled {{ end }}
+				class="action">Форматировать</button>
+		</div>
+		<textarea placeholder="Введите ваш json здесь" name="json">{{ .JsonTextArea.Children }}</textarea>
+	</form>
+</section>

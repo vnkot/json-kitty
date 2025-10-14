@@ -41,44 +41,8 @@
 				</p>
 			</div>
 
-			<section class="main__json json-card">
-				<header class="json-card__head">
-					<h2 class="title title--color-reverse"><i class="emoji emoji--write"></i> Исходный JSON
-					</h2>
-				</header>
-
-				<form class="json-card__body" hx-post="/api/json-format" hx-target="#json-result">
-					<div class="json-card__actions">
-						<button hx-get="/api/json-example" hx-trigger="click" hx-target="#json-editor"
-							hx-swap="outerHTML" class="action json-card__action">Пример</button>
-						<button type="submit" class="action">Форматировать</button>
-					</div>
-					<textarea id="json-editor" oninput="updateButtonsState()" placeholder="Введите ваш json здесь"
-						name="client-json"></textarea>
-				</form>
-			</section>
-
-			<section class="main__result json-card">
-				<header class="json-card__head">
-					<h2 class="title title--color-reverse"><i class="emoji emoji--magic"></i>
-						Отформатированный JSON</h2>
-				</header>
-
-				<div class="json-card__body">
-					<!-- <div class="json-card__actions">
-						<button disabled class="action json-card__action">Скопировать</button>
-					</div> -->
-
-					<pre id="json-result"></pre>
-
-					<!-- <div class="json-card__placeholder placeholder">
-						<div class="placeholder__content">
-							<span class="placeholder__paws"><i class="emoji emoji--paws"></i></span>
-							<p class="description">Здесь будет красивенький json</p>
-						</div>
-					</div> -->
-				</div>
-			</section>
+			{{ template "json_editor.html" .JsonEditorState }}
+			{{ template "json_result.html" .JsonResultSate }}
 		</main>
 
 		<footer class="footer">
