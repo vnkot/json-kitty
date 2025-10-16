@@ -7,7 +7,9 @@
 	<div class="json-card__body">
 		<div class="json-card__actions">
 			<button {{ if .CopyButton.Disabled }} disabled {{ end }} {{ if .CopyButton.OnClick }}
-				onclick={{.CopyButton.OnClick}} {{ end }} class="action json-card__action">Скопировать</button>
+				onclick="{{ .CopyButton.OnClick }}" {{ end }} class="action json-card__action">
+				Скопировать
+			</button>
 		</div>
 
 		<pre>{{ .JsonResult.Children }}</pre>
