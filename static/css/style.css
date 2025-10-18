@@ -168,12 +168,15 @@
 		textarea {
 			width: 100%;
 			min-height: 320px;
+			max-height: 580px;
 
 			padding: 2rem;
 			display: block;
 			border-radius: .5rem;
 			background-color: var(--color-bg);
 			border: 1px solid var(--color-border);
+
+			overscroll-behavior: contain;
 
 			font-family: inherit;
 			line-height: 1.5;
@@ -186,6 +189,10 @@
 			&:focus {
 				outline: 2px solid var(--color-accent);
 			}
+		}
+
+		pre {
+			overflow: auto;
 		}
 	}
 

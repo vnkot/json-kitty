@@ -19,11 +19,7 @@ type Index struct {
 func NewHandler() *Index {
 	return &Index{
 		defaultPageState: IndexPageState{
-			JsonEditorState{
-				FormatButton: htmlelementstate.ButtonState{
-					Disabled: true,
-				},
-			},
+			JsonEditorState{},
 			JsonResultState{
 				CopyButton: htmlelementstate.ButtonState{
 					Disabled: true,
@@ -74,9 +70,6 @@ func (h *Index) JSONExample(w http.ResponseWriter, r *http.Request) {
 	randomJsonExample := jsonkitty.Examples[rand.Intn(len(jsonkitty.Examples))]
 
 	templates.ExecuteTemplate(w, "json_editor.html", JsonEditorState{
-		FormatButton: htmlelementstate.ButtonState{
-			Disabled: false,
-		},
 		JsonTextArea: htmlelementstate.ElementState{
 			Children: randomJsonExample,
 		},

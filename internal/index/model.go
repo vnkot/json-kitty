@@ -5,7 +5,6 @@ import (
 )
 
 type JsonEditorState struct {
-	FormatButton htmlelementstate.ButtonState
 	JsonTextArea htmlelementstate.ElementState
 }
 

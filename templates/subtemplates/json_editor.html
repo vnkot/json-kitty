@@ -8,8 +8,7 @@
 		<div class="json-card__actions">
 			<button hx-get="/api/json-example" hx-trigger="click" hx-target="#json-editor" hx-swap="outerHTML"
 				class="action json-card__action">Пример</button>
-			<button type="submit" {{ if .FormatButton.Disabled }} disabled {{ end }}
-				class="action">Форматировать</button>
+			<button type="submit" class="action">Форматировать</button>
 		</div>
 		<textarea placeholder="Введите ваш json здесь" name="json">{{ .JsonTextArea.Children }}</textarea>
 	</form>
